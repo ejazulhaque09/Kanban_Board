@@ -16,7 +16,7 @@ Installation
 Clone the repository:
 
 ```
-git clone https://github.com/your-username/kanban-board.git
+git clone https://github.com/ejazulhaque09/kanban-board.git
 ```
 Install dependencies:
 
