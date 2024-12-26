@@ -12,16 +12,19 @@ const KanbanBoard = () => {
   const [newTaskDescription, setNewTaskDescription] = useState('');
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Handle drop
   const handleDrop = (e, stage) => {
     e.preventDefault();
     const task = JSON.parse(e.dataTransfer.getData('task'));
     dispatch(moveTask({ from: task.stage, to: stage, task }));
   };
 
+  // Handle DragStart
   const handleDragStart = (e, task, stage) => {
     e.dataTransfer.setData('task', JSON.stringify({ ...task, stage }));
   };
 
+  // Handle adding new Task
   const handleAddTask = () => {
     if (newTaskTitle.trim() && newTaskDescription.trim()) {
       dispatch(
@@ -36,10 +39,14 @@ const KanbanBoard = () => {
     }
   };
 
+
+  // Handle Delete Task
   const handleDeleteTask = (stage, id) => {
+    if(window.confirm("Are you sure you want to delete this Item!"))
     dispatch(deleteTask({ stage, id }));
   };
 
+  // Filter task based on title
   const filteredTasks = (stage) => {
     return tasks[stage].filter((task) =>
       task.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -85,7 +92,7 @@ const KanbanBoard = () => {
           <h3>{stage}</h3>
           {filteredTasks(stage).map((task) => (
             <div
-              key={task.id}
+              key={task.id} 
               className="kanban-task"
               draggable
               onDragStart={(e)   => handleDragStart(e, task, stage)}

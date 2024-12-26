@@ -11,16 +11,20 @@ const tasksSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
+    // Add task to local storage
     addTask: (state, action) => {
       state.Todo.push(action.payload);
       localStorage.setItem('tasks', JSON.stringify(state));
     },
+    // Move task with drag and drop
     moveTask: (state, action) => {
       const { from, to, task } = action.payload;
       state[from] = state[from].filter((t) => t.id !== task.id);
       state[to].push(task);
       localStorage.setItem('tasks', JSON.stringify(state));
     },
+
+    // Delete Task 
     deleteTask: (state, action) => {
       const { stage, id } = action.payload;
       state[stage] = state[stage].filter((task) => task.id !== id);

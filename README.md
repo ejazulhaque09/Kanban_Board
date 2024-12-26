@@ -23,13 +23,8 @@ Install dependencies:
 ```
 cd kanban-board
 npm install
+npm run dev
 ```
-Start the development server:
-
-```
-npm start
-```
-Open your browser and navigate to http://localhost:3000.
 
 ### Usage
 - Add a Task: Enter a title and description, then click "Add Task".

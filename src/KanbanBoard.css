@@ -131,9 +131,30 @@
 @media (max-width: 768px) {
   .kanban-board {
     flex-direction: column;
+    width: 100vw;
   }
-
+  .header{
+    width: 100%;
+    display: flex ;
+    flex-direction: column;
+  }
+  .header input{
+    width: 95vw;
+    height: 8vh;
+    margin: 5px;
+  }
+  .add-task-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
   .kanban-column {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 1rem;
   }
 }
